@@ -1,12 +1,12 @@
 {
 	"manifest_version": 1,
-	"id": "de.it-consilium.joplin.insertcollapsiblepdf",
+	"id": "de.it-consilium.joplin.collapsiblecontent",
 	"app_min_version": "2.0",
-	"version": "1.0.0",
-	"name": "Insert collapsible PDF",
-	"description": "Inserts PDF file attachment to note within a collapsible html snippet",
+	"version": "0.0.1",
+	"name": "Collapsible Content",
+	"description": "Embrace selected text in a collapsible html element",
 	"author": "Dirk Osburg",
-	"homepage_url": "https://github.com/itc-ger/joplin-insert-collapsible-pdf",
-	"repository_url": "https://github.com/itc-ger/joplin-insert-collapsible-pdf",
+	"homepage_url": "https://github.com/itc-ger/joplin-collapsible-content",
+	"repository_url": "https://github.com/itc-ger/joplin-collapsible-content",
 	"keywords": []
 }
