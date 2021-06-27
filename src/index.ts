@@ -22,36 +22,9 @@ joplin.plugins.register({
             execute: async () => {
                 const sel = await joplin.commands.execute('selectedText');
                 alert('selected Text: ' + sel);
-                await joplin.commands.execute('replaceSelection', sel+'#');
-
-                /*
-                await joplin.commands.execute('editor.execCommand', {
-                    name: 'madeUpCommand', // CodeMirror and TinyMCE
-                    args: [], // CodeMirror and TinyMCE
-                    ui: false, // TinyMCE only
-                    value: '', // TinyMCE only
-                });*/
-                /*
-                const cursor = editorRef.current.getCursor();
-							const pos = cursorPositionToTextOffset(cursor, props.content);
-
-							const newBody = await commandAttachFileToBody(props.content, null, { position: pos });
-							if (newBody) editorRef.current.updateBody(newBody);
-                // commandAttachFileToBody
-                */
-                /*
-                const newBody = await joplin.commands.execute('editor.execCommand', {
-                                name: 'commandAttachFileToBody',
-                                args: ['oldContent', null, {position: 0} ],
-                                ui: true,
-                                value: ''
-                            });
-                const newBody = await joplin.commands.execute('commandAttachFileToBody', ['oldContent', null, {position: 0} ]);
-                alert('new Body: ' + newBody);
-                const { dialog } = require('electron')
-                    console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
-                */
-                //await joplin.commands.execute('attachFile');
+                const needle = /^\s*!?\[([^\]]+)\]\([^\)]+\).*$/m;
+                const repl = sel.replace(needle, "<details close>\n<summary>Show $1 </summary>\n\n " + sel + " \n</details>\n")
+                await joplin.commands.execute('replaceSelection', repl);
             },
         });
 
